@@ -11,12 +11,14 @@
 body {
     background-color: #000;
     color: #fff;
+    overflow-x: hidden;
 }
 
 .container {
     display: flex;
     height: 100vh;
     min-height: 100vh;
+    width: 100%;
 }
 
 .sidebar {
@@ -99,6 +101,7 @@ main {
     flex-grow: 1;
     min-width: 0;
     overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .search-bar {
@@ -182,6 +185,7 @@ main {
     bottom: 0;
     right: 0;
     left: 0;
+    z-index: 100;
     background: linear-gradient(90deg, #af2896, #509bf5);
     display: flex;
     justify-content: space-between;
@@ -216,8 +220,9 @@ main {
 
 @media (max-width: 900px) {
     .sidebar {
-        width: 220px;
-        flex-basis: 220px;
+        width: 180px;
+        flex-basis: 180px;
+        gap: 12px;
     }
 
     main {
@@ -227,6 +232,15 @@ main {
     .artists-grid,
     .albums-grid {
         gap: 16px;
+    }
+
+    .nav-playlist,
+    .nav-podcast {
+        padding: 12px;
+    }
+
+    .nav-footer a {
+        display: inline-block;
     }
 }
 
@@ -240,12 +254,17 @@ main {
     }
 
     .sidebar {
+        position: sticky;
+        top: 0;
+        z-index: 90;
         width: 100%;
+        height: 56px;
         padding: 12px 16px;
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
         gap: 12px;
+        background-color: #121212;
     }
 
     .nav-playlist,
@@ -262,6 +281,11 @@ main {
     main {
         padding: 16px;
         overflow: visible;
+        padding-bottom: 96px;
+    }
+
+    .search-bar {
+        width: 100%;
     }
 
     .content {
